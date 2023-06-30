@@ -9,7 +9,7 @@ var path = require('path');
 //make the upload path available to the browser 
 app.use('/uploads',express.static(__dirname + '/uploads'));
 //set up the view engine
-app.set('view engine', 'ejs');+
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.set('views','./views');
 app.use('/',require('./routes'));//it will move to routes/index.js for furthur 
