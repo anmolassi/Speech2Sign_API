@@ -1,9 +1,3 @@
-index.html
 node_modules
-functions
-public
-.firebaserc
-firebase-debug.log
-firebase.json
-ui-debug.log
+downloadKey.json
 .env
