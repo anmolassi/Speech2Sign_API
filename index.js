@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('/etc/secrets/dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const mongodb = require('mongodb');
