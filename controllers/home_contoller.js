@@ -41,7 +41,7 @@ module.exports.upload = async function (req, res, next) {
           url = signedUrls[0];
         });
       console.log(url);
-      saveGif.create({
+      await saveGif.create({
         fileName: fileinfo[i].originalname,
         path: `${url}`,
         node:process.env.NOD,
