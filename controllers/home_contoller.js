@@ -1,7 +1,7 @@
 const saveGif = require("../models/save_gif");
 var admin = require("firebase-admin");
 const { Storage } = require("@google-cloud/storage");
-var serviceAccount = require("../downloadKey.json");
+var serviceAccount = require("/etc/secrets/downloadKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
