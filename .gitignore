@@ -6,3 +6,4 @@ public
 firebase-debug.log
 firebase.json
 ui-debug.log
+.env
