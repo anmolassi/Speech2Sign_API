@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //connect to the database
-mongoose.connect(process.env.MONBODB_URL);
+mongoose.connect("mongodb+srv://speech2signn1:speech2sign@speech2sign-n1.yagdmsi.mongodb.net/?retryWrites=true&w=majority");
 
 //acquire the connection(to check if it's successful)
 const db = mongoose.connection;
