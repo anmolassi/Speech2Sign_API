@@ -50,7 +50,7 @@ module.exports.upload = async function (req, res, next) {
           fileName: newFiles[j],
           path: `${url}`,
           node:process.env.NOD,
-          bytes: fileinfo[i].size,
+          originalFileName: fileinfo[i].originalFileName,
         });
       }
       

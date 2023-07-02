@@ -13,7 +13,7 @@ const saveGifSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    bytes:{
+    originalFileName:{
         type:String,
         required:true
     },
