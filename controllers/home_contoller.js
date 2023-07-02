@@ -41,12 +41,19 @@ module.exports.upload = async function (req, res, next) {
           url = signedUrls[0];
         });
       console.log(url);
-      await saveGif.create({
-        fileName: fileinfo[i].originalname,
-        path: `${url}`,
-        node:process.env.NOD,
-        bytes: fileinfo[i].size,
-      });
+      var fileWithoutExtension=fileinfo[i].originalname.substring(0,fileinfo[i].originalname.length-4);
+      console.log(fileWithoutExtension);
+      var newFiles=fileWithoutExtension.match(/\b(\w+)\b/g);
+      for(let j=0;j<newFiles.length;j++){
+        newFiles[j]=newFiles[j]+".gif";
+        await saveGif.create({
+          fileName: newFiles[j],
+          path: `${url}`,
+          node:process.env.NOD,
+          bytes: fileinfo[i].size,
+        });
+      }
+      
     }
     res.send(fileinfo);
   } catch (err) {}
