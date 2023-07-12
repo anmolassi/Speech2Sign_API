@@ -47,10 +47,10 @@ module.exports.upload = async function (req, res, next) {
       for(let j=0;j<newFiles.length;j++){
         newFiles[j]=newFiles[j]+".gif";
         await saveGif.create({
-          fileName: newFiles[j],
+          fileName: newFiles[j].toLowerCase(),
           path: `${url}`,
           node:process.env.NOD,
-          originalFileName: fileinfo[i].originalname,
+          originalFileName: fileinfo[i].originalname.toLowerCase(),
         });
       }
       
