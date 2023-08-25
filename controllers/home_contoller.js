@@ -1,7 +1,7 @@
 const saveGif = require("../models/save_gif");
 var admin = require("firebase-admin");
 const { Storage } = require("@google-cloud/storage");
-var serviceAccount = require("/etc/secrets/downloadKey.json");
+var serviceAccount = require("../downloadKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -41,18 +41,19 @@ module.exports.upload = async function (req, res, next) {
           url = signedUrls[0];
         });
       console.log(url);
-      var fileWithoutExtension=fileinfo[i].originalname.substring(0,fileinfo[i].originalname.length-4);
-      console.log(fileWithoutExtension);
-      var newFiles=fileWithoutExtension.match(/\b(\w+)\b/g);
-      for(let j=0;j<newFiles.length;j++){
-        newFiles[j]=newFiles[j]+".gif";
+      // var fileWithoutExtension=fileinfo[i].originalname.substring(0,fileinfo[i].originalname.length-4);
+      // console.log(fileWithoutExtension);
+      // var newFiles=fileWithoutExtension.match(/\b(\w+)\b/g);
+      // for(let j=0;j<newFiles.length;j++){
+      //   newFiles[j]=newFiles[j]+".gif";
+      console.log(fileinfo[i].originalname);
         await saveGif.create({
-          fileName: newFiles[j].toLowerCase(),
+          fileName: fileinfo[i].originalname.toLowerCase(),
           path: `${url}`,
           node:process.env.NOD,
           originalFileName: fileinfo[i].originalname.toLowerCase(),
         });
-      }
+      //}
       
     }
     res.send(fileinfo);
