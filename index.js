@@ -6,6 +6,7 @@ const app = express();
 const port = 5000;;
 const db=require('./config/mongoose');
 var path = require('path');
+const requestIp = require('request-ip')
 //make the upload path available to the browser 
 app.use('/uploads',express.static(__dirname + '/uploads'));
 //set up the view engine
