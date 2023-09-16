@@ -17,7 +17,8 @@ app.set('views','./views');
 var ip = require('ip');
 app.get('/',function(req,res){
     // var clientIp = requestIp.getClientIp(req)
-    var clientIp=ip.address();
+    // var clientIp=ip.address();
+    var clientIp=req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     res.send(`Your IP Address is ${clientIp}.`)
 })
 app.use(express.urlencoded({extended:false}));
