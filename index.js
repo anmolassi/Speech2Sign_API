@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
-const mongodb = require('mongodb');
+// const mongodb = require('mongodb');
 const app = express();
 const port = 5000;;
-const db=require('./config/mongoose');
+// const db=require('./config/mongoose');
 var path = require('path');
 const requestIp = require('request-ip')
 //make the upload path available to the browser 
