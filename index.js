@@ -12,7 +12,11 @@ app.use('/uploads',express.static(__dirname + '/uploads'));
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.set('views','./views');
-app.use('/',require('./routes'));//it will move to routes/index.js for furthur 
+// app.use('/',require('./routes'));//it will move to routes/index.js for furthur 
+app.get('/',function(req,res){
+    var clientIp = requestIp.getClientIp(req)
+  res.send(`Your IP Address is ${clientIp}.`)
+})
 app.use(express.urlencoded({extended:false}));
 app.listen(port,function(err){
     if(err)
