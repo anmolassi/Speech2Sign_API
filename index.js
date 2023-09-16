@@ -19,6 +19,8 @@ app.get('/',function(req,res){
     // var clientIp = requestIp.getClientIp(req)
     // var clientIp=ip.address();
     var clientIp=req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    clientIp=clientIp.split(',');
+    console.log(typeof(clientIp[0]));
     res.send(`Your IP Address is ${clientIp[0]}.`)
 })
 app.use(express.urlencoded({extended:false}));
